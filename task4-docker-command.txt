@@ -1,0 +1,2 @@
+sudo docker secret create postgre_password postgre_password.txt
+sudo docker service create --name postgres --constraint node.hostname==dockerswarm-01 --secret postgre_password -e POSTGRES_PASSWORD_FILE=/run/secrets/postgre_password postgres:latest
